@@ -53,8 +53,7 @@
   <h1>Full-Size SUV Search<br>Captain's Chairs + Real 3rd Row</h1>
   <div class="sub">Asking prices before tax/fees · Every listing delivery-eligible nationwide</div>
   <div style="text-align:center;margin:-16px 0 18px"><span style="display:inline-block;background:#eef5ee;border:1px solid #cfe3cf;border-radius:20px;padding:5px 14px;font-size:13px;color:#2e6b3e">✓ Last verified July 22, 2026 at 5:17 PM ET — all 10 listings confirmed available</span></div>
-  <div class="gate" id="gate">🔒 <b>Family notes are shared</b> — enter the passcode to view &amp; add your thoughts under each car:
-    <input type="password" id="pc" placeholder="passcode" onkeydown="if(event.key==='Enter')unlock()"> <button onclick="unlock()">Unlock</button></div>
+  <div class="gate" id="gate">💬 <b>Add your notes &amp; thoughts under any car below</b> — they're shared with everyone who has this link.</div>
 
   <h2>Criteria (locked)</h2>
   <ul>
@@ -170,17 +169,14 @@
 
 <script>
 const DB_URL = "https://REPLACE_ME-default-rtdb.firebaseio.com"; // Firebase Realtime DB base URL
-const PASSCODE = "diata2026";
 const connected = !/REPLACE_ME/.test(DB_URL);
 function esc(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
 function slug(t){return t.toLowerCase().replace(/^[0-9.\s]+/,'').split(/[\s—-]+/).slice(0,2).join('-').replace(/[^a-z0-9-]/g,'')}
-function unlock(){ if(document.getElementById('pc').value===PASSCODE){ sessionStorage.notesOK='1'; render(); } else { alert('Wrong passcode'); } }
 async function loadNotes(car){ if(!connected) return {}; try{ const r=await fetch(`${DB_URL}/notes/${car}.json`); return (await r.json())||{}; }catch(e){ return {}; } }
 async function addNote(car,box){ const nm=box.querySelector('.nm').value.trim()||'Anonymous'; const tx=box.querySelector('textarea').value.trim(); if(!tx) return; if(!connected){ alert('The shared notes backend is being connected — check back shortly.'); return; } await fetch(`${DB_URL}/notes/${car}.json`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({n:nm,x:tx,t:Date.now()})}); box.querySelector('textarea').value=''; renderCar(car); }
-async function renderCar(car){ const box=document.querySelector(`.notes[data-car="${car}"]`); if(!box) return; const ok=sessionStorage.notesOK==='1'; let h='<h4>💬 Notes &amp; thoughts</h4>'; if(!ok){ h+='<div class="locked">🔒 Enter the passcode above to view &amp; add notes.</div>'; box.innerHTML=h; return; } const data=await loadNotes(car); const items=Object.values(data||{}).sort((a,b)=>a.t-b.t); h+= items.length ? items.map(n=>`<div class="note"><span class="who">${esc(n.n)}</span> <span class="when">${new Date(n.t).toLocaleDateString()}</span><br>${esc(n.x)}</div>`).join('') : '<div class="locked">No notes yet — add the first.</div>'; h+=`<div class="row"><input class="nm" placeholder="Your name"><textarea placeholder="Add a note…"></textarea><button>Post</button></div>`; box.innerHTML=h; box.querySelector('button').onclick=()=>addNote(car,box); }
-function render(){ if(sessionStorage.notesOK==='1'){ const g=document.getElementById('gate'); if(g) g.style.display='none'; } document.querySelectorAll('.notes[data-car]').forEach(b=>renderCar(b.dataset.car)); }
+async function renderCar(car){ const box=document.querySelector(`.notes[data-car="${car}"]`); if(!box) return; const data=await loadNotes(car); const items=Object.values(data||{}).sort((a,b)=>a.t-b.t); let h='<h4>💬 Notes &amp; thoughts</h4>'; h+= items.length ? items.map(n=>`<div class="note"><span class="who">${esc(n.n)}</span> <span class="when">${new Date(n.t).toLocaleDateString()}</span><br>${esc(n.x)}</div>`).join('') : '<div class="locked">No notes yet — add the first.</div>'; h+=`<div class="row"><input class="nm" placeholder="Your name"><textarea placeholder="Add a note…"></textarea><button>Post</button></div>`; box.innerHTML=h; box.querySelector('button').onclick=()=>addNote(car,box); }
 document.querySelectorAll('.card, .mini .body').forEach(c=>{ const h=c.querySelector('h3'); if(!h||/GX 550/i.test(h.textContent)) return; const d=document.createElement('div'); d.className='notes'; d.dataset.car=slug(h.textContent); c.appendChild(d); });
-render();
+document.querySelectorAll('.notes[data-car]').forEach(b=>renderCar(b.dataset.car));
 </script>
 </body>
 </html>
