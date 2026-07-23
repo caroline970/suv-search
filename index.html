@@ -34,6 +34,17 @@
   .note { font-size:13px; color:#7a7f93; }
   .foot { margin-top:44px; font-size:12px; color:#9aa; border-top:1px solid var(--line); padding-top:16px; text-align:center; }
   @media (max-width:620px){ .mini{flex-direction:column} .mini img{width:100%;max-width:100%} }
+  .gate{background:#fff7e6;border:1px solid #f0d9a8;border-radius:12px;padding:12px 16px;margin:20px 0 6px;text-align:center;font-size:14px}
+  .gate input{font-family:inherit;padding:7px 10px;border:1px solid #ccc;border-radius:8px;margin:0 6px}
+  .gate button,.notes button{font-family:'Lora',serif;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:7px 15px;font-weight:700;cursor:pointer}
+  .notes{margin-top:16px;border-top:1px dashed var(--line);padding-top:12px}
+  .notes h4{font-family:'Libre Baskerville',serif;color:var(--navy);font-size:14px;margin:0 0 8px}
+  .note{background:#f5f8fc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:14px;line-height:1.5}
+  .note .who{font-weight:700;color:var(--navy)} .note .when{color:#9aa;font-size:12px}
+  .notes .row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .notes input.nm{width:140px;font-family:inherit;padding:7px 10px;border:1px solid #ccc;border-radius:8px}
+  .notes textarea{flex:1;min-width:220px;min-height:40px;font-family:inherit;padding:7px 10px;border:1px solid #ccc;border-radius:8px}
+  .locked{color:#9aa;font-size:13px;font-style:italic}
 </style>
 </head>
 <body>
@@ -41,7 +52,9 @@
   <hr class="rule">
   <h1>Full-Size SUV Search<br>Captain's Chairs + Real 3rd Row</h1>
   <div class="sub">Asking prices before tax/fees · Every listing delivery-eligible nationwide</div>
-  <div style="text-align:center;margin:-16px 0 30px"><span style="display:inline-block;background:#eef5ee;border:1px solid #cfe3cf;border-radius:20px;padding:5px 14px;font-size:13px;color:#2e6b3e">✓ Last verified July 22, 2026 at 5:17 PM ET — all 10 listings confirmed available</span></div>
+  <div style="text-align:center;margin:-16px 0 18px"><span style="display:inline-block;background:#eef5ee;border:1px solid #cfe3cf;border-radius:20px;padding:5px 14px;font-size:13px;color:#2e6b3e">✓ Last verified July 22, 2026 at 5:17 PM ET — all 10 listings confirmed available</span></div>
+  <div class="gate" id="gate">🔒 <b>Family notes are shared</b> — enter the passcode to view &amp; add your thoughts under each car:
+    <input type="password" id="pc" placeholder="passcode" onkeydown="if(event.key==='Enter')unlock()"> <button onclick="unlock()">Unlock</button></div>
 
   <h2>Criteria (locked)</h2>
   <ul>
@@ -154,5 +167,20 @@
   <p>Pick a path for the final captain's-confirmed shortlist: <b>Path A</b> (diesel Yukon/Suburban) or <b>Path B</b> (Wagoneer / Escalade) — or both, side by side.</p>
 
   <div class="foot">Diata Health · Photos &amp; pricing from live AutoTrader listings, accurate as of July 22, 2026 — inventory changes daily.</div>
+
+<script>
+const DB_URL = "https://REPLACE_ME-default-rtdb.firebaseio.com"; // Firebase Realtime DB base URL
+const PASSCODE = "diata2026";
+const connected = !/REPLACE_ME/.test(DB_URL);
+function esc(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function slug(t){return t.toLowerCase().replace(/^[0-9.\s]+/,'').split(/[\s—-]+/).slice(0,2).join('-').replace(/[^a-z0-9-]/g,'')}
+function unlock(){ if(document.getElementById('pc').value===PASSCODE){ sessionStorage.notesOK='1'; render(); } else { alert('Wrong passcode'); } }
+async function loadNotes(car){ if(!connected) return {}; try{ const r=await fetch(`${DB_URL}/notes/${car}.json`); return (await r.json())||{}; }catch(e){ return {}; } }
+async function addNote(car,box){ const nm=box.querySelector('.nm').value.trim()||'Anonymous'; const tx=box.querySelector('textarea').value.trim(); if(!tx) return; if(!connected){ alert('The shared notes backend is being connected — check back shortly.'); return; } await fetch(`${DB_URL}/notes/${car}.json`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({n:nm,x:tx,t:Date.now()})}); box.querySelector('textarea').value=''; renderCar(car); }
+async function renderCar(car){ const box=document.querySelector(`.notes[data-car="${car}"]`); if(!box) return; const ok=sessionStorage.notesOK==='1'; let h='<h4>💬 Notes &amp; thoughts</h4>'; if(!ok){ h+='<div class="locked">🔒 Enter the passcode above to view &amp; add notes.</div>'; box.innerHTML=h; return; } const data=await loadNotes(car); const items=Object.values(data||{}).sort((a,b)=>a.t-b.t); h+= items.length ? items.map(n=>`<div class="note"><span class="who">${esc(n.n)}</span> <span class="when">${new Date(n.t).toLocaleDateString()}</span><br>${esc(n.x)}</div>`).join('') : '<div class="locked">No notes yet — add the first.</div>'; h+=`<div class="row"><input class="nm" placeholder="Your name"><textarea placeholder="Add a note…"></textarea><button>Post</button></div>`; box.innerHTML=h; box.querySelector('button').onclick=()=>addNote(car,box); }
+function render(){ if(sessionStorage.notesOK==='1'){ const g=document.getElementById('gate'); if(g) g.style.display='none'; } document.querySelectorAll('.notes[data-car]').forEach(b=>renderCar(b.dataset.car)); }
+document.querySelectorAll('.card, .mini .body').forEach(c=>{ const h=c.querySelector('h3'); if(!h||/GX 550/i.test(h.textContent)) return; const d=document.createElement('div'); d.className='notes'; d.dataset.car=slug(h.textContent); c.appendChild(d); });
+render();
+</script>
 </body>
 </html>
