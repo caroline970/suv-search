@@ -168,7 +168,7 @@
   <div class="foot">Diata Health · Photos &amp; pricing from live AutoTrader listings, accurate as of July 22, 2026 — inventory changes daily.</div>
 
 <script>
-const DB_URL = "https://REPLACE_ME-default-rtdb.firebaseio.com"; // Firebase Realtime DB base URL
+const DB_URL = "https://diata-suv-notes-default-rtdb.firebaseio.com"; // Firebase Realtime DB base URL
 const connected = !/REPLACE_ME/.test(DB_URL);
 function esc(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
 function slug(t){return t.toLowerCase().replace(/^[0-9.\s]+/,'').split(/[\s—-]+/).slice(0,2).join('-').replace(/[^a-z0-9-]/g,'')}
