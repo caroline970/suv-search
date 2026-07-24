@@ -18,6 +18,11 @@
   a { color:var(--navy); font-weight:700; } a:hover { text-decoration:underline; }
   .badge { text-align:center; margin:0 0 18px; }
   .badge span { display:inline-block; background:#eef5ee; border:1px solid #cfe3cf; border-radius:20px; padding:5px 14px; font-size:13px; color:#2e6b3e; }
+  .btnwrap { text-align:center; margin:6px 0 26px; }
+  .btn { display:inline-block; background:var(--navy); color:#fff !important; font-family:'Libre Baskerville',serif; font-weight:700; font-size:16px; letter-spacing:.4px; text-decoration:none; padding:13px 26px; border-radius:30px; box-shadow:0 3px 10px rgba(32,48,127,.28); }
+  .btn:hover { background:#182566; text-decoration:none; }
+  .btnsub { font-size:12px; color:#7a7f93; margin-top:8px; }
+  .seeall { display:inline-block; margin-top:4px; font-weight:700; color:var(--red); }
   .call { background:var(--accent); border-radius:14px; padding:18px 22px; margin:14px 0 6px; }
   .call ol { margin:10px 0 0; padding-left:22px; } .call li { margin:5px 0; }
   .note { font-size:13px; color:#7a7f93; }
@@ -54,6 +59,8 @@
   <div class="sub">Captain's chairs (verified on every one) · real 3rd row · black/navy · updated July 24, 2026</div>
   <div class="badge"><span>✓ Every option below has captain's chairs confirmed · ranked best → worst for Caroline's priorities</span></div>
 
+  <div class="btnwrap"><a class="btn" href="#options">🔎 See live options</a><div class="btnsub">Jump to the cars — each links to what's actually for sale right now on AutoTrader</div></div>
+
   <h2>The call — my ranking &amp; why</h2>
   <div class="call">
     <p style="margin:0">Scored for a <b>10-year keeper</b> · captain's chairs · a genuinely usable 3rd row · a cool interior · black/navy · sensible cost. <b>The top two are the real decision</b>; 3&ndash;8 are strong alternatives.</p>
@@ -70,7 +77,7 @@
     <p style="margin:10px 0 0"><b>Bottom line:</b> it's <b>Escalade vs. Vistiq</b> — the proven, flashiest 10-year flagship, or the cool electric Cadillac that costs a fraction to run. Everything else is a value, space, or reliability variation.</p>
   </div>
 
-  <h2>The options — ranked, with photos</h2>
+  <h2 id="options">The options — ranked, with live listings</h2>
 
   <div class="card">
     <div class="rankbadge">1</div>
@@ -79,7 +86,7 @@
     <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/72a5db6f95534521a7e0d3c570cc9838.jpg" alt="Escalade exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/67461f9bf60649949d76b055b08ccfc5.jpg" alt="Escalade interior"><figcaption>INTERIOR</figcaption></figure></div>
     <p class="spec">2023 Premium Luxury · Black Raven · 27,304 mi · <b>$58,690</b> · gas · <b class="g">captain's ✓</b><br>
     <b>3rd row:</b> full-size · <b>Cabin:</b> A+ (38″ curved OLED — max IG) · <b>Running cost:</b> ~$3,000/yr · <b>10-yr durability:</b> Strong (proven V8)<br>
-    <b>Why #1:</b> lasts the decade, best-in-class cabin on camera, most presence. Catch: priciest to fuel + $59k. <a href="https://www.autotrader.com/cars-for-sale/vehicle/785680808">View listing →</a></p>
+    <b>Why #1:</b> lasts the decade, best-in-class cabin on camera, most presence. Catch: priciest to fuel + $59k. <a href="https://www.autotrader.com/cars-for-sale/vehicle/785680808">View this one →</a> · <a class="seeall" href="https://www.autotrader.com/cars-for-sale/all-cars/cadillac/escalade/bryn-mawr-pa?extColorSimple=BLACK&extColorSimple=BLUE&mileage=30000&maxPrice=70000&searchRadius=0&sortBy=derivedpriceASC&startYear=2021">🔎 See all available now →</a></p>
   </div>
 
   <div class="card">
@@ -89,7 +96,7 @@
     <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/ab06b3b7bf3f4dc2a82d4521bd3e1909.jpg" alt="Vistiq exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/60d3025c37874fa080d5f990a98c76c0.jpg" alt="Vistiq interior"><figcaption>INTERIOR</figcaption></figure></div>
     <p class="spec">2026 Luxury · Stellar Black · 4,908 mi (basically new) · <b>$61,747</b> · electric (~305 mi) · <b class="g">captain's ✓</b><br>
     <b>3rd row:</b> real &amp; usable (midsize) · <b>Cabin:</b> A+ (33″ display, fresh &amp; novel) · <b>Running cost:</b> ~$750/yr (home charge) · <b>10-yr durability:</b> ⚠ Unproven (first-year EV; battery ages ~15&ndash;20%)<br>
-    <b>Why #2:</b> A+ cabin, ~$1,800/yr cheaper to run, cool factor, and your garage is charging-ready. <a href="https://www.autotrader.com/cars-for-sale/vehicle/779733921">View listing →</a></p>
+    <b>Why #2:</b> A+ cabin, ~$1,800/yr cheaper to run, cool factor, and your garage is charging-ready. <a href="https://www.autotrader.com/cars-for-sale/vehicle/779733921">View this one →</a> · <a class="seeall" href="https://www.autotrader.com/cars-for-sale/all-cars/cadillac/vistiq/bryn-mawr-pa?extColorSimple=BLACK&extColorSimple=BLUE&searchRadius=0&sortBy=derivedpriceASC">🔎 See all available now →</a></p>
   </div>
 
   <div class="card">
@@ -99,17 +106,17 @@
     <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/9c30fecd126a482f987c56d9fcb4ffa4.jpg" alt="Sequoia exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/3d9813a508ed4a35aa3fd8b9caf30133.jpg" alt="Sequoia interior"><figcaption>INTERIOR</figcaption></figure></div>
     <p class="spec">2024 Platinum · Midnight Black · 9,786 mi · <b>$69,762</b> · hybrid (~21 mpg) · <b class="g">captain's ✓</b><br>
     <b>3rd row:</b> full-size · <b>Cabin:</b> B (solid, more rugged than plush) · <b>Running cost:</b> ~$2,000/yr · <b>10-yr durability:</b> Excellent (Toyota)<br>
-    <b>Why #3:</b> if longevity is the tie-breaker, nothing here beats it. Catch: $70k + a plainer cabin. <a href="https://www.autotrader.com/cars-for-sale/vehicle/782687563">View listing →</a></p>
+    <b>Why #3:</b> if longevity is the tie-breaker, nothing here beats it. Catch: $70k + a plainer cabin. <a href="https://www.autotrader.com/cars-for-sale/vehicle/782687563">View this one →</a> · <a class="seeall" href="https://www.autotrader.com/cars-for-sale/all-cars/toyota/sequoia/bryn-mawr-pa?extColorSimple=BLACK&extColorSimple=BLUE&mileage=30000&maxPrice=82000&searchRadius=0&sortBy=derivedpriceASC&startYear=2023">🔎 See all available now →</a></p>
   </div>
 
   <div class="card">
     <div class="rankbadge">4</div>
     <h3>Jeep Wagoneer</h3>
     <p class="tag">Most 3rd-row space for the least money</p>
-    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/cd1806d6db054036b0a8cecd25c0090e.jpg" alt="Wagoneer exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/a41151d2b4644c3daa08f8cdb4ff2a70.jpg" alt="Wagoneer interior"><figcaption>INTERIOR</figcaption></figure></div>
+    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/cd1806d6db054036b0a8cecd25c0090e.jpg" alt="Wagoneer exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/60448184a2a340eba7cc0f667b32a82b.jpg" alt="Wagoneer interior — captain's chairs"><figcaption>INTERIOR</figcaption></figure></div>
     <p class="spec">2024 Series II · Diamond Black · 24,867 mi · <b>$44,999</b> · gas · <b class="g">captain's ✓</b><br>
     <b>3rd row:</b> full-size, excellent · <b>Cabin:</b> A&minus; (nicer still on Series III) · <b>Running cost:</b> ~$2,350/yr · <b>10-yr durability:</b> ⚠ Below-avg (buy Certified)<br>
-    <b>Why #4:</b> the value + space champ. Only reason it's not higher: reliability risk over a decade. <a href="https://www.autotrader.com/cars-for-sale/vehicle/784356244">View listing →</a></p>
+    <b>Why #4:</b> the value + space champ. Only reason it's not higher: reliability risk over a decade. <a href="https://www.autotrader.com/cars-for-sale/vehicle/784356244">View this one →</a> · <a class="seeall" href="https://www.autotrader.com/cars-for-sale/all-cars/jeep/wagoneer/bryn-mawr-pa?extColorSimple=BLACK&extColorSimple=BLUE&mileage=30000&maxPrice=65000&searchRadius=0&sortBy=derivedpriceASC&startYear=2022">🔎 See all available now →</a></p>
   </div>
 
   <div class="card">
@@ -119,7 +126,7 @@
     <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/f652967e5f3b4bce9dade1f2e3bb6234.jpg" alt="Yukon Denali exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/9e7e9479de114a68bc55dad21be1632e.jpg" alt="Yukon Denali interior"><figcaption>INTERIOR</figcaption></figure></div>
     <p class="spec">2025 Denali · Onyx Black · 21,696 mi · <b>$64,900</b> · gas · <b class="g">captain's ✓</b><br>
     <b>3rd row:</b> full-size (XL is even bigger) · <b>Cabin:</b> B+ · <b>Running cost:</b> ~$3,000/yr · <b>10-yr durability:</b> Good (proven GM)<br>
-    <b>Why #5:</b> a lot of full-size luxe, but nothing it wins outright vs. #1–4. <a href="https://www.autotrader.com/cars-for-sale/vehicle/778308515">View listing →</a></p>
+    <b>Why #5:</b> a lot of full-size luxe, but nothing it wins outright vs. #1–4. <a href="https://www.autotrader.com/cars-for-sale/vehicle/778308515">View this one →</a> · <a class="seeall" href="https://www.autotrader.com/cars-for-sale/all-cars/gmc/yukon/bryn-mawr-pa?extColorSimple=BLACK&extColorSimple=BLUE&mileage=30000&maxPrice=78000&searchRadius=0&sortBy=derivedpriceASC&startYear=2022">🔎 See all available now →</a></p>
   </div>
 
   <div class="card">
@@ -129,7 +136,7 @@
     <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/7fd3d1fbb3dc48868e34c443bca31d46.jpg" alt="Lexus TX exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/8c5c0934afc14386bec2a92bcc1188c3.jpg" alt="Lexus TX interior"><figcaption>INTERIOR</figcaption></figure></div>
     <p class="spec">2024 TX 350 · Caviar (black) · 11,127 mi · <b>$55,910</b> · gas · <b class="g">captain's ✓</b> (6-seat)<br>
     <b>3rd row:</b> usable, midsize · <b>Cabin:</b> A&minus; (refined, understated) · <b>Running cost:</b> ~$2,200/yr · <b>10-yr durability:</b> Excellent (Lexus)<br>
-    <b>Why #6:</b> reliable and lovely, but smaller 3rd row and less "wow" on camera. <a href="https://www.autotrader.com/cars-for-sale/vehicle/784262030">View →</a></p>
+    <b>Why #6:</b> reliable and lovely, but smaller 3rd row and less "wow" on camera. <a href="https://www.autotrader.com/cars-for-sale/vehicle/784262030">View this one →</a> · <a class="seeall" href="https://www.autotrader.com/cars-for-sale/all-cars/suv-crossover/lexus/bryn-mawr-pa?extColorSimple=BLACK&extColorSimple=BLUE&mileage=30000&maxPrice=80000&searchRadius=0&sortBy=derivedpriceDESC&startYear=2024">🔎 See all available Lexus TX now →</a></p>
   </div>
 
   <div class="card">
@@ -139,7 +146,7 @@
     <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/bbf3c382f9734a3bb6a9d58bc4c3ac8e.jpg" alt="Grand Highlander exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/7d94f52b1cd04a6084b223e4b3de4f56.jpg" alt="Grand Highlander interior"><figcaption>INTERIOR</figcaption></figure></div>
     <p class="spec">2025 XLE · Blueprint (blue) · 9,973 mi · <b>$34,795</b> · hybrid (~30 mpg) · <b class="g">captain's ✓</b><br>
     <b>3rd row:</b> usable, midsize · <b>Cabin:</b> B (clean, mainstream) · <b>Running cost:</b> ~$1,250/yr (thriftiest) · <b>10-yr durability:</b> Excellent (Toyota)<br>
-    <b>Why #7:</b> cheapest to buy <i>and</i> run + very reliable — just not a full-size 3rd row or a showy cabin. <a href="https://www.autotrader.com/cars-for-sale/vehicle/776107162">View listing →</a></p>
+    <b>Why #7:</b> cheapest to buy <i>and</i> run + very reliable — just not a full-size 3rd row or a showy cabin. <a href="https://www.autotrader.com/cars-for-sale/vehicle/776107162">View this one →</a> · <a class="seeall" href="https://www.autotrader.com/cars-for-sale/all-cars/toyota/grand-highlander/bryn-mawr-pa?extColorSimple=BLACK&extColorSimple=BLUE&mileage=30000&maxPrice=60000&searchRadius=0&sortBy=derivedpriceASC">🔎 See all available now →</a></p>
   </div>
 
   <div class="card">
@@ -149,7 +156,7 @@
     <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/518761bf3aa54e1a89a86f7ef45dd78c.jpg" alt="Aviator exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/6405dc5dab41466481dc1744f7c96841.jpg" alt="Aviator interior"><figcaption>INTERIOR</figcaption></figure></div>
     <p class="spec">2023 Aviator AWD · black · 16,940 mi · <b>$27,995</b> · gas · <b class="g">captain's ✓</b><br>
     <b>3rd row:</b> ⚠ tightest here · <b>Cabin:</b> A (Revel audio, 30-way seats) · <b>Running cost:</b> ~$2,200/yr · <b>10-yr durability:</b> Average (Lincoln/Ford)<br>
-    <b>Why #8:</b> a genuinely luxe cabin for cheap — held back by the smallest 3rd row + average reliability. <a href="https://www.autotrader.com/cars-for-sale/vehicle/784161956">View →</a></p>
+    <b>Why #8:</b> a genuinely luxe cabin for cheap — held back by the smallest 3rd row + average reliability. <a href="https://www.autotrader.com/cars-for-sale/vehicle/784161956">View this one →</a> · <a class="seeall" href="https://www.autotrader.com/cars-for-sale/all-cars/lincoln/aviator/bryn-mawr-pa?extColorSimple=BLACK&extColorSimple=BLUE&mileage=30000&maxPrice=65000&searchRadius=0&sortBy=derivedpriceASC&startYear=2022">🔎 See all available now →</a></p>
   </div>
 
   <h2>Quick-reference table</h2>
