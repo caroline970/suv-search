@@ -3,219 +3,183 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Full-Size SUV Search — Captain's Chairs + Real 3rd Row</title>
+<title>SUV Shortlist — Ranked (Captain's Chairs + 3rd Row)</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#20307f; --accent:#d4e5f6; --ink:#0b0b0b; --body:#333; --red:#d02e2e; --line:#e3e6ef; }
+  :root { --navy:#20307f; --accent:#d4e5f6; --ink:#0b0b0b; --body:#333; --red:#d02e2e; --line:#e3e6ef; --good:#1f7a3d; }
   * { box-sizing:border-box; }
   body { font-family:'Lora',Georgia,serif; color:var(--body); background:#fff; line-height:1.6; max-width:940px; margin:0 auto; padding:34px 22px 90px; }
-  .wordmark { font-family:'Libre Baskerville',Georgia,serif; font-weight:700; letter-spacing:3px; text-transform:uppercase; font-size:15px; color:var(--navy); text-align:center; }
-  .rule { height:2px; width:60px; background:var(--red); margin:12px auto 26px; border:0; }
-  h1 { font-family:'Libre Baskerville',Georgia,serif; font-weight:400; color:var(--navy); font-size:30px; line-height:1.25; margin:0 0 8px; text-align:center; }
-  .sub { color:#7a7f93; font-size:14px; font-style:italic; margin:0 0 30px; text-align:center; }
-  h2 { font-family:'Libre Baskerville',Georgia,serif; font-weight:400; color:var(--navy); font-size:22px; margin:40px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--accent); }
-  h3 { font-family:'Libre Baskerville',Georgia,serif; font-weight:700; color:var(--navy); font-size:17px; margin:0 0 8px; }
-  ul { padding-left:20px; } li { margin:6px 0; }
+  .wordmark { font-family:'Libre Baskerville',serif; font-weight:700; letter-spacing:3px; text-transform:uppercase; font-size:15px; color:var(--navy); text-align:center; }
+  .rule { height:2px; width:60px; background:var(--red); margin:12px auto 24px; border:0; }
+  h1 { font-family:'Libre Baskerville',serif; font-weight:400; color:var(--navy); font-size:29px; line-height:1.25; margin:0 0 8px; text-align:center; }
+  .sub { color:#7a7f93; font-size:14px; font-style:italic; margin:0 0 20px; text-align:center; }
+  h2 { font-family:'Libre Baskerville',serif; font-weight:400; color:var(--navy); font-size:22px; margin:38px 0 14px; padding-bottom:8px; border-bottom:2px solid var(--accent); }
   b, strong { color:var(--ink); }
-  .rec { background:var(--accent); border-radius:14px; padding:18px 22px; margin:16px 0; }
-  .rec ul { margin:0; }
-  .table-wrap { overflow-x:auto; }
-  table { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; min-width:660px; }
-  th,td { text-align:left; padding:10px 12px; border:1px solid var(--line); vertical-align:top; }
-  th { background:var(--navy); color:#fff; font-family:'Libre Baskerville',serif; font-weight:700; font-size:13px; }
-  tr.best td { background:#eef5ee; } tr.warn td { background:#fdf1e7; }
-  td.win { background:#eaf5ea; }
-  .fin th { vertical-align:top; text-align:center; font-family:'Lora',serif; font-weight:700; }
-  .fin th img { width:100%; max-width:150px; height:auto; border-radius:8px; display:block; margin:0 auto 6px; }
-  .fin th span { font-weight:400; font-size:12px; color:#d4e5f6; }
-  .card { border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin:18px 0; }
-  .card img { display:block; width:100%; max-width:500px; height:auto; border-radius:10px; margin-bottom:12px; }
-  .mini { display:flex; gap:18px; align-items:flex-start; border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:14px 0; }
-  .mini img { width:230px; max-width:42%; height:auto; border-radius:10px; flex-shrink:0; }
-  .mini .body { flex:1; min-width:0; }
-  a { color:var(--navy); font-weight:700; }
-  a:hover { text-decoration:underline; }
+  a { color:var(--navy); font-weight:700; } a:hover { text-decoration:underline; }
+  .badge { text-align:center; margin:0 0 18px; }
+  .badge span { display:inline-block; background:#eef5ee; border:1px solid #cfe3cf; border-radius:20px; padding:5px 14px; font-size:13px; color:#2e6b3e; }
+  .call { background:var(--accent); border-radius:14px; padding:18px 22px; margin:14px 0 6px; }
+  .call ol { margin:10px 0 0; padding-left:22px; } .call li { margin:5px 0; }
   .note { font-size:13px; color:#7a7f93; }
-  .foot { margin-top:44px; font-size:12px; color:#9aa; border-top:1px solid var(--line); padding-top:16px; text-align:center; }
-  @media (max-width:620px){ .mini{flex-direction:column} .mini img{width:100%;max-width:100%} }
-  .gate{background:#fff7e6;border:1px solid #f0d9a8;border-radius:12px;padding:12px 16px;margin:20px 0 6px;text-align:center;font-size:14px}
-  .gate input{font-family:inherit;padding:7px 10px;border:1px solid #ccc;border-radius:8px;margin:0 6px}
-  .gate button,.notes button{font-family:'Lora',serif;background:var(--navy);color:#fff;border:0;border-radius:8px;padding:7px 15px;font-weight:700;cursor:pointer}
-  .notes{margin-top:16px;border-top:1px dashed var(--line);padding-top:12px}
-  .notes h4{font-family:'Libre Baskerville',serif;color:var(--navy);font-size:14px;margin:0 0 8px}
-  .note{background:#f5f8fc;border-radius:8px;padding:8px 12px;margin:6px 0;font-size:14px;line-height:1.5}
-  .note .who{font-weight:700;color:var(--navy)} .note .when{color:#9aa;font-size:12px}
-  .notes .row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-  .notes input.nm{width:140px;font-family:inherit;padding:7px 10px;border:1px solid #ccc;border-radius:8px}
-  .notes textarea{flex:1;min-width:220px;min-height:40px;font-family:inherit;padding:7px 10px;border:1px solid #ccc;border-radius:8px}
-  .locked{color:#9aa;font-size:13px;font-style:italic}
+  .card { border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:16px 0; position:relative; }
+  .card h3 { font-family:'Libre Baskerville',serif; font-weight:700; color:var(--navy); font-size:18px; margin:0 0 4px; padding-right:44px; }
+  .rankbadge { position:absolute; top:16px; right:18px; width:34px; height:34px; border-radius:50%; background:var(--navy); color:#fff; font-family:'Libre Baskerville',serif; font-weight:700; font-size:17px; display:flex; align-items:center; justify-content:center; }
+  .tag { color:#7a7f93; font-style:italic; font-size:14px; margin:0 0 10px; }
+  .photos { display:flex; gap:8px; margin:0 0 12px; }
+  .photos figure { flex:1; margin:0; }
+  .photos img { width:100%; height:auto; border-radius:10px; display:block; }
+  .photos figcaption { font-size:11px; color:#9aa; text-align:center; margin-top:3px; letter-spacing:.3px; }
+  .spec { font-size:14px; }
+  .spec b.g { color:var(--good); }
+  table { width:100%; border-collapse:collapse; margin:6px 0; font-size:13.5px; }
+  th,td { text-align:left; padding:8px 10px; border:1px solid var(--line); } th { background:var(--navy); color:#fff; font-weight:600; }
+  .table-wrap { overflow-x:auto; }
+  .notes { margin-top:14px; border-top:1px dashed var(--line); padding-top:10px; }
+  .notes h4 { font-family:'Libre Baskerville',serif; color:var(--navy); font-size:14px; margin:0 0 8px; }
+  .note-item { background:#f5f8fc; border-radius:8px; padding:8px 12px; margin:6px 0; font-size:14px; }
+  .note-item .who { font-weight:700; color:var(--navy); } .note-item .when { color:#9aa; font-size:12px; }
+  .notes .row { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+  .notes input.nm { width:140px; } .notes input, .notes textarea { font-family:inherit; padding:7px 10px; border:1px solid #ccc; border-radius:8px; }
+  .notes textarea { flex:1; min-width:200px; min-height:38px; }
+  .notes button { font-family:'Lora',serif; background:var(--navy); color:#fff; border:0; border-radius:8px; padding:7px 15px; font-weight:700; cursor:pointer; }
+  .locked { color:#9aa; font-size:13px; font-style:italic; }
+  .foot { margin-top:42px; font-size:12px; color:#9aa; border-top:1px solid var(--line); padding-top:16px; text-align:center; }
+  @media (max-width:560px){ .photos{flex-direction:column} }
 </style>
 </head>
 <body>
   <div class="wordmark">Diata Health</div>
   <hr class="rule">
-  <h1>Full-Size SUV Search<br>Captain's Chairs + Real 3rd Row</h1>
-  <div class="sub">Asking prices before tax/fees · Every listing delivery-eligible nationwide</div>
-  <div style="text-align:center;margin:-16px 0 18px"><span style="display:inline-block;background:#eef5ee;border:1px solid #cfe3cf;border-radius:20px;padding:5px 14px;font-size:13px;color:#2e6b3e">✓ Updated July 24, 2026 · every option is captain's-verified · now spans gas / hybrid / electric + a full interior ranking</span></div>
-  <div class="gate" id="gate">💬 <b>Add your notes &amp; thoughts under any car below</b> — they're shared with everyone who has this link.</div>
+  <h1>SUV Shortlist — Ranked</h1>
+  <div class="sub">Captain's chairs (verified on every one) · real 3rd row · black/navy · updated July 24, 2026</div>
+  <div class="badge"><span>✓ Every option below has captain's chairs confirmed · ranked best → worst for Caroline's priorities</span></div>
 
-  <h2>🏁 Finalists — head to head</h2>
-  <p class="note">The three it really comes down to, scored on what matters. Green = the winner of that row.</p>
-  <div class="table-wrap">
-  <table class="fin">
-    <tr>
-      <th style="width:20%;background:#fff;border:0"></th>
-      <th><img src="https://images.autotrader.com/hn/c/ab06b3b7bf3f4dc2a82d4521bd3e1909.jpg" alt="Vistiq">Cadillac Vistiq<br><span>Electric · $61,747</span></th>
-      <th><img src="https://images.autotrader.com/hn/c/cd1806d6db054036b0a8cecd25c0090e.jpg" alt="Wagoneer">Jeep Wagoneer<br><span>Gas · $44,999</span></th>
-      <th><img src="https://images.autotrader.com/hn/c/72a5db6f95534521a7e0d3c570cc9838.jpg" alt="Escalade">Cadillac Escalade<br><span>Gas · $58,690</span></th>
-    </tr>
-    <tr><td><b>3rd-row size</b></td><td>Midsize — real &amp; usable, not a cavern</td><td class="win">✅ Full-size, excellent</td><td class="win">✅ Full-size, huge</td></tr>
-    <tr><td><b>Cabin</b></td><td class="win">✅ A+ — 33″ display, new-gen luxe</td><td>A — Nappa + wood (Series III)</td><td class="win">✅ A+ — best-in-class</td></tr>
-    <tr><td><b>Running cost</b></td><td class="win">✅ ~$750/yr (home charge) + low upkeep</td><td>~$2,400/yr fuel</td><td>~$3,000/yr (premium — thirstiest)</td></tr>
-    <tr><td><b>Reliability</b></td><td>New nameplate — unproven, but simple EV</td><td>⚠ Below-avg — buy Certified</td><td class="win">✅ Average (established)</td></tr>
-    <tr><td><b>Price</b></td><td>$61,747</td><td class="win">✅ $44,999 (cheapest)</td><td>$58,690</td></tr>
-    <tr><td><b>In a word</b></td><td><b>Coolest + cheapest to run</b></td><td><b>Most space for the money</b></td><td><b>The do-everything flagship</b></td></tr>
-  </table>
-  </div>
-  <p class="note"><b>How to choose:</b> <b>Vistiq</b> → low running cost + a stunning cabin + cool factor (and you're charging-ready). <b>Wagoneer</b> → the biggest 3rd row for the least money (buy Certified to cover the reliability). <b>Escalade</b> → the flagship that does everything; just accept the fuel bill. My lean for you: it's <b>Vistiq vs. Wagoneer</b> — the plush, thrifty, cool EV, or the roomy value play.</p>
-
-  <h2>Criteria (locked)</h2>
-  <ul>
-    <li><b>Full-size body / real usable 3rd row</b> — non-negotiable</li>
-    <li><b>2nd-row captain's chairs</b> — non-negotiable (photo-confirm each; every model also offers a bench)</li>
-    <li><b>Black or navy</b> exterior · <b>&le; 30,000 miles</b> (ideal)</li>
-    <li><b>Budget:</b> ideally $40&ndash;50k, up to $60&ndash;65k all-in</li>
-    <li><b>Better gas mileage preferred</b> · delivery anywhere fine</li>
-  </ul>
-
-  <h2>Recommendation</h2>
-  <div class="rec">
-    <p style="margin:0 0 10px">With <b>diesel ruled out</b>, no full-size SUV gets good gas mileage — they're all ~14&ndash;16 mpg. So it comes down to two choices:</p>
-    <ul>
-      <li><b>Path A — full-size 3rd row + captain's:</b> the captain's-<i>verified</i> value pick is the <b>Jeep Wagoneer ($45k)</b>; step up to <b>Escalade ($59k)</b>, <b>Yukon Denali ($65k)</b>, or <b>Sequoia Platinum ($68k)</b> for presence/reliability. All ~14&ndash;16 mpg.</li>
-      <li><b>Path B — accept a slightly smaller 3rd row for real efficiency:</b> the <b>Grand Highlander Hybrid ($35k, ~30 mpg)</b> or <b>Lincoln Aviator ($28k)</b> — both captain's-verified, far cheaper, far thriftier. Usable adult 3rd row, just not the full-size cavern.</li>
-    </ul>
-    <p style="margin:10px 0 0"><b>My take:</b> if full-size is the hard line, the <b>Wagoneer</b> gives you captain's chairs + presence for ~$45k. If you can live with a slightly smaller 3rd row, the <b>Grand Highlander Hybrid</b> is the smart-money pick — captain's, ~30 mpg, and half the fuel cost of the big trucks.</p>
+  <h2>The call — my ranking &amp; why</h2>
+  <div class="call">
+    <p style="margin:0">Scored for a <b>10-year keeper</b> · captain's chairs · a genuinely usable 3rd row · a cool interior · black/navy · sensible cost. <b>The top two are the real decision</b>; 3&ndash;8 are strong alternatives.</p>
+    <ol>
+      <li><b>Cadillac Escalade</b> — the safe 10-year keeper <i>and</i> the flashiest cabin. Biggest all-rounder; the catch is fuel + price.</li>
+      <li><b>Cadillac Vistiq</b> (electric) — nearly as cool, cheapest to run, newest tech, charging-ready garage. Catch: first-year EV, battery ages over a decade.</li>
+      <li><b>Toyota Sequoia Platinum</b> — if "will it last 10 years?" is the deciding question, this is the bulletproof full-size.</li>
+      <li><b>Jeep Wagoneer</b> — the most 3rd-row space for the least money; buy Certified to cover the so-so reliability.</li>
+      <li><b>GMC Yukon Denali</b> — handsome full-size luxe, but pricey and thirsty.</li>
+      <li><b>Lexus TX</b> — refined and Lexus-durable, just a size down and understated.</li>
+      <li><b>Toyota Grand Highlander Hybrid</b> — the sensible-money pick: reliable, ~30 mpg, cheap — smaller 3rd row, plainer cabin.</li>
+      <li><b>Lincoln Aviator</b> — plush cabin for the least money; tightest 3rd row + average reliability.</li>
+    </ol>
+    <p style="margin:10px 0 0"><b>Bottom line:</b> it's <b>Escalade vs. Vistiq</b> — the proven, flashiest 10-year flagship, or the cool electric Cadillac that costs a fraction to run. Everything else is a value, space, or reliability variation.</p>
   </div>
 
-  <h2>Comparison — full-size options</h2>
+  <h2>The options — ranked, with photos</h2>
+
+  <div class="card">
+    <div class="rankbadge">1</div>
+    <h3>Cadillac Escalade</h3>
+    <p class="tag">The 10-year flagship — durability + the flashiest cabin</p>
+    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/72a5db6f95534521a7e0d3c570cc9838.jpg" alt="Escalade exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/67461f9bf60649949d76b055b08ccfc5.jpg" alt="Escalade interior"><figcaption>INTERIOR</figcaption></figure></div>
+    <p class="spec">2023 Premium Luxury · Black Raven · 27,304 mi · <b>$58,690</b> · gas · <b class="g">captain's ✓</b><br>
+    <b>3rd row:</b> full-size · <b>Cabin:</b> A+ (38″ curved OLED — max IG) · <b>Running cost:</b> ~$3,000/yr · <b>10-yr durability:</b> Strong (proven V8)<br>
+    <b>Why #1:</b> lasts the decade, best-in-class cabin on camera, most presence. Catch: priciest to fuel + $59k. <a href="https://www.autotrader.com/cars-for-sale/vehicle/785680808">View listing →</a></p>
+  </div>
+
+  <div class="card">
+    <div class="rankbadge">2</div>
+    <h3>Cadillac Vistiq — electric</h3>
+    <p class="tag">Nearly as cool, cheapest to run, newest — you'd love it</p>
+    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/ab06b3b7bf3f4dc2a82d4521bd3e1909.jpg" alt="Vistiq exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/60d3025c37874fa080d5f990a98c76c0.jpg" alt="Vistiq interior"><figcaption>INTERIOR</figcaption></figure></div>
+    <p class="spec">2026 Luxury · Stellar Black · 4,908 mi (basically new) · <b>$61,747</b> · electric (~305 mi) · <b class="g">captain's ✓</b><br>
+    <b>3rd row:</b> real &amp; usable (midsize) · <b>Cabin:</b> A+ (33″ display, fresh &amp; novel) · <b>Running cost:</b> ~$750/yr (home charge) · <b>10-yr durability:</b> ⚠ Unproven (first-year EV; battery ages ~15&ndash;20%)<br>
+    <b>Why #2:</b> A+ cabin, ~$1,800/yr cheaper to run, cool factor, and your garage is charging-ready. <a href="https://www.autotrader.com/cars-for-sale/vehicle/779733921">View listing →</a></p>
+  </div>
+
+  <div class="card">
+    <div class="rankbadge">3</div>
+    <h3>Toyota Sequoia Platinum</h3>
+    <p class="tag">The bulletproof full-size — the surest 10-year bet</p>
+    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/9c30fecd126a482f987c56d9fcb4ffa4.jpg" alt="Sequoia exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/3d9813a508ed4a35aa3fd8b9caf30133.jpg" alt="Sequoia interior"><figcaption>INTERIOR</figcaption></figure></div>
+    <p class="spec">2024 Platinum · Midnight Black · 9,786 mi · <b>$69,762</b> · hybrid (~21 mpg) · <b class="g">captain's ✓</b><br>
+    <b>3rd row:</b> full-size · <b>Cabin:</b> B (solid, more rugged than plush) · <b>Running cost:</b> ~$2,000/yr · <b>10-yr durability:</b> Excellent (Toyota)<br>
+    <b>Why #3:</b> if longevity is the tie-breaker, nothing here beats it. Catch: $70k + a plainer cabin. <a href="https://www.autotrader.com/cars-for-sale/vehicle/782687563">View listing →</a></p>
+  </div>
+
+  <div class="card">
+    <div class="rankbadge">4</div>
+    <h3>Jeep Wagoneer</h3>
+    <p class="tag">Most 3rd-row space for the least money</p>
+    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/cd1806d6db054036b0a8cecd25c0090e.jpg" alt="Wagoneer exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/a41151d2b4644c3daa08f8cdb4ff2a70.jpg" alt="Wagoneer interior"><figcaption>INTERIOR</figcaption></figure></div>
+    <p class="spec">2024 Series II · Diamond Black · 24,867 mi · <b>$44,999</b> · gas · <b class="g">captain's ✓</b><br>
+    <b>3rd row:</b> full-size, excellent · <b>Cabin:</b> A&minus; (nicer still on Series III) · <b>Running cost:</b> ~$2,350/yr · <b>10-yr durability:</b> ⚠ Below-avg (buy Certified)<br>
+    <b>Why #4:</b> the value + space champ. Only reason it's not higher: reliability risk over a decade. <a href="https://www.autotrader.com/cars-for-sale/vehicle/784356244">View listing →</a></p>
+  </div>
+
+  <div class="card">
+    <div class="rankbadge">5</div>
+    <h3>GMC Yukon Denali</h3>
+    <p class="tag">Handsome full-size luxe with captain's standard</p>
+    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/f652967e5f3b4bce9dade1f2e3bb6234.jpg" alt="Yukon Denali exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/9e7e9479de114a68bc55dad21be1632e.jpg" alt="Yukon Denali interior"><figcaption>INTERIOR</figcaption></figure></div>
+    <p class="spec">2025 Denali · Onyx Black · 21,696 mi · <b>$64,900</b> · gas · <b class="g">captain's ✓</b><br>
+    <b>3rd row:</b> full-size (XL is even bigger) · <b>Cabin:</b> B+ · <b>Running cost:</b> ~$3,000/yr · <b>10-yr durability:</b> Good (proven GM)<br>
+    <b>Why #5:</b> a lot of full-size luxe, but nothing it wins outright vs. #1–4. <a href="https://www.autotrader.com/cars-for-sale/vehicle/778308515">View listing →</a></p>
+  </div>
+
+  <div class="card">
+    <div class="rankbadge">6</div>
+    <h3>Lexus TX</h3>
+    <p class="tag">Refined &amp; Lexus-durable — a size down</p>
+    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/7fd3d1fbb3dc48868e34c443bca31d46.jpg" alt="Lexus TX exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/8c5c0934afc14386bec2a92bcc1188c3.jpg" alt="Lexus TX interior"><figcaption>INTERIOR</figcaption></figure></div>
+    <p class="spec">2024 TX 350 · Caviar (black) · 11,127 mi · <b>$55,910</b> · gas · <b class="g">captain's ✓</b> (6-seat)<br>
+    <b>3rd row:</b> usable, midsize · <b>Cabin:</b> A&minus; (refined, understated) · <b>Running cost:</b> ~$2,200/yr · <b>10-yr durability:</b> Excellent (Lexus)<br>
+    <b>Why #6:</b> reliable and lovely, but smaller 3rd row and less "wow" on camera. <a href="https://www.autotrader.com/cars-for-sale/vehicle/784262030">View →</a></p>
+  </div>
+
+  <div class="card">
+    <div class="rankbadge">7</div>
+    <h3>Toyota Grand Highlander — hybrid</h3>
+    <p class="tag">The sensible-money pick — reliable &amp; thrifty</p>
+    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/bbf3c382f9734a3bb6a9d58bc4c3ac8e.jpg" alt="Grand Highlander exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/7d94f52b1cd04a6084b223e4b3de4f56.jpg" alt="Grand Highlander interior"><figcaption>INTERIOR</figcaption></figure></div>
+    <p class="spec">2025 XLE · Blueprint (blue) · 9,973 mi · <b>$34,795</b> · hybrid (~30 mpg) · <b class="g">captain's ✓</b><br>
+    <b>3rd row:</b> usable, midsize · <b>Cabin:</b> B (clean, mainstream) · <b>Running cost:</b> ~$1,250/yr (thriftiest) · <b>10-yr durability:</b> Excellent (Toyota)<br>
+    <b>Why #7:</b> cheapest to buy <i>and</i> run + very reliable — just not a full-size 3rd row or a showy cabin. <a href="https://www.autotrader.com/cars-for-sale/vehicle/776107162">View listing →</a></p>
+  </div>
+
+  <div class="card">
+    <div class="rankbadge">8</div>
+    <h3>Lincoln Aviator</h3>
+    <p class="tag">Plush cabin for the least money</p>
+    <div class="photos"><figure><img src="https://images.autotrader.com/hn/c/518761bf3aa54e1a89a86f7ef45dd78c.jpg" alt="Aviator exterior"><figcaption>EXTERIOR</figcaption></figure><figure><img src="https://images.autotrader.com/hn/c/6405dc5dab41466481dc1744f7c96841.jpg" alt="Aviator interior"><figcaption>INTERIOR</figcaption></figure></div>
+    <p class="spec">2023 Aviator AWD · black · 16,940 mi · <b>$27,995</b> · gas · <b class="g">captain's ✓</b><br>
+    <b>3rd row:</b> ⚠ tightest here · <b>Cabin:</b> A (Revel audio, 30-way seats) · <b>Running cost:</b> ~$2,200/yr · <b>10-yr durability:</b> Average (Lincoln/Ford)<br>
+    <b>Why #8:</b> a genuinely luxe cabin for cheap — held back by the smallest 3rd row + average reliability. <a href="https://www.autotrader.com/cars-for-sale/vehicle/784161956">View →</a></p>
+  </div>
+
+  <h2>Quick-reference table</h2>
   <div class="table-wrap">
   <table>
-    <tr><th>Model</th><th>Size / 3rd row</th><th>Real-world MPG</th><th>Fits $40&ndash;50k?</th><th>Captain's*</th><th>Cool</th><th>Reliability</th></tr>
-    <tr><td><b>Jeep Wagoneer / L</b></td><td>Full-size ✓ (huge)</td><td>~18</td><td>$45&ndash;60k</td><td>Standard</td><td>High</td><td>Below-avg (electronics)</td></tr>
-    <tr><td><b>Cadillac Escalade</b></td><td>Full-size ✓ (huge)</td><td>~16</td><td>$58&ndash;63k</td><td>Standard</td><td>Max presence</td><td>Average</td></tr>
-    <tr><td><b>Toyota Sequoia (Hybrid)</b></td><td>Full-size ✓</td><td>~21</td><td>$58&ndash;65k</td><td>Rare option</td><td>Rugged-cool</td><td>Excellent</td></tr>
-    <tr><td><b>GMC Yukon (Denali)</b></td><td>Full-size ✓ (XL = biggest)</td><td>~16</td><td>$65k (Denali)</td><td>Standard on Denali</td><td>High (Denali)</td><td>Avg&ndash;good</td></tr>
-    <tr class="warn"><td><b>Toyota Grand Highlander (Hybrid)</b></td><td>⚠ Midsize-large</td><td><b>26&ndash;36 (champ)</b></td><td>$35&ndash;48k ✓✓</td><td>XLE+</td><td>Mainstream</td><td>Excellent</td></tr>
+    <tr><th>#</th><th>Model</th><th>Price</th><th>3rd row</th><th>Cabin</th><th>Fuel/yr</th><th>10-yr</th></tr>
+    <tr><td>1</td><td>Cadillac Escalade</td><td>$58,690</td><td>Full-size</td><td>A+</td><td>~$3,000</td><td>Strong</td></tr>
+    <tr><td>2</td><td>Cadillac Vistiq (EV)</td><td>$61,747</td><td>Midsize</td><td>A+</td><td>~$750</td><td>⚠ Unproven</td></tr>
+    <tr><td>3</td><td>Toyota Sequoia Platinum</td><td>$69,762</td><td>Full-size</td><td>B</td><td>~$2,000</td><td>Excellent</td></tr>
+    <tr><td>4</td><td>Jeep Wagoneer</td><td>$44,999</td><td>Full-size</td><td>A&minus;</td><td>~$2,350</td><td>⚠ Below-avg</td></tr>
+    <tr><td>5</td><td>GMC Yukon Denali</td><td>$64,900</td><td>Full-size</td><td>B+</td><td>~$3,000</td><td>Good</td></tr>
+    <tr><td>6</td><td>Lexus TX</td><td>$55,910</td><td>Midsize</td><td>A&minus;</td><td>~$2,200</td><td>Excellent</td></tr>
+    <tr><td>7</td><td>Toyota Grand Highlander Hybrid</td><td>$34,795</td><td>Midsize</td><td>B</td><td>~$1,250</td><td>Excellent</td></tr>
+    <tr><td>8</td><td>Lincoln Aviator</td><td>$27,995</td><td>Tight</td><td>A</td><td>~$2,200</td><td>Average</td></tr>
   </table>
   </div>
-  <p class="note">* Captain's chairs are an option/trim on every one of these — a bench version also exists, so each candidate must be photo-confirmed before purchase.</p>
 
-  <h2>🪑 Interiors — how the cabins stack up</h2>
-  <p class="note">Ranked best cabin first. Grades weigh materials, screens/tech, seat comfort, and overall "wow."</p>
-  <div class="table-wrap">
-  <table>
-    <tr><th>Vehicle</th><th>Grade</th><th>The cabin, in a line</th></tr>
-    <tr><td><b>Cadillac Escalade</b></td><td><b>A+</b></td><td>Best-in-class — sweeping curved OLED dash, top-grade materials, full luxury.</td></tr>
-    <tr class="best"><td><b>Cadillac Vistiq</b> (EV)</td><td><b>A+</b></td><td>New-gen Cadillac: 33" LED display, stunning modern luxe — the Escalade IQ's little sibling.</td></tr>
-    <tr><td><b>Lincoln Aviator</b></td><td><b>A</b></td><td>Punches way above its price — Revel audio, 30-way "Perfect Position" seats, genuinely plush.</td></tr>
-    <tr><td><b>Jeep Wagoneer</b> (Series III)</td><td><b>A</b></td><td>Nappa leather, real wood, McIntosh audio — properly upscale (Series II is a notch down).</td></tr>
-    <tr><td><b>Lexus TX</b></td><td><b>A&minus;</b></td><td>Refined, whisper-quiet, flawless fit-and-finish — understated rather than flashy.</td></tr>
-    <tr><td><b>GMC Yukon Denali</b></td><td><b>B+</b></td><td>Big step up from a base Yukon — nice materials, huge screen, handsome.</td></tr>
-    <tr><td><b>Toyota Grand Highlander</b></td><td><b>B</b></td><td>Clean, pleasant, well-built — but mainstream, not luxury.</td></tr>
-    <tr><td><b>Toyota Sequoia</b> (Platinum)</td><td><b>B</b></td><td>Modern and solid, but more rugged-truck than plush.</td></tr>
-  </table>
-  </div>
-  <p class="note"><b>For your "nicer leather" priority:</b> the standouts are the <b>Escalade</b>, <b>Cadillac Vistiq</b>, <b>Lincoln Aviator</b>, and <b>Wagoneer Series III</b>.</p>
+  <p class="note" style="margin-top:16px"><b>Criteria:</b> 2nd-row captain's chairs (non-negotiable, photo-verified on each) · usable 3rd row · black/navy · ~$40&ndash;65k · delivery anywhere. <b>Ruled out:</b> Infiniti QX80 (dated cabin), Lexus GX (tiny 3rd row), Tesla Model X (older cabin/tight 3rd row), Kia EV9 &amp; Hyundai (brand), Rivian R1S (bench 2nd row), Escalade IQ (~$90k). No diesel. Prices are asking price before tax/fees; inventory changes daily.</p>
 
-  <h2>The options — photo, details &amp; link</h2>
-
-  <div class="card">
-    <h3>1. Jeep Wagoneer — the original benchmark</h3>
-    <img src="https://images.autotrader.com/hn/c/cd1806d6db054036b0a8cecd25c0090e.jpg" alt="Jeep Wagoneer Series II black">
-    <p><b>💰 Best price:</b> 2024 Wagoneer Series II · Diamond Black · 24,867 mi · <b>$44,999</b> · <b style="color:#1f7a3d">✓ captain's verified</b> (7-passenger config).<br>
-    <b>MPG:</b> 16 city / 23 hwy · <b>3rd row:</b> full-size, excellent · <b>Note:</b> below-average reliability rep (electronics) — buy Certified or add a Mopar warranty.<br>
-    <a href="https://www.autotrader.com/cars-for-sale/vehicle/784356244">View listing →</a></p>
-  </div>
-
-  <div class="card">
-    <h3>2. Cadillac Escalade — max presence</h3>
-    <img src="https://images.autotrader.com/hn/c/72a5db6f95534521a7e0d3c570cc9838.jpg" alt="Cadillac Escalade black">
-    <p><b>💰 Best price:</b> 2023 Escalade Premium Luxury · Black Raven · 27,304 mi · <b>$58,690</b> · <b style="color:#b25f00">captain's standard on this trim</b> (this listing has no 2nd-row photo — confirm w/ dealer).<br>
-    <b>MPG:</b> 14 city / 18 hwy (6.2 V8) · <b>3rd row:</b> full-size · <b>Note:</b> to stay &le;30k mi in black/navy, Escalades run $58&ndash;63k (top of budget).<br>
-    <a href="https://www.autotrader.com/cars-for-sale/vehicle/785680808">View listing →</a></p>
-  </div>
-
-
-  <div class="card">
-    <h3>3. Toyota Sequoia (Hybrid) — big + reliable, marginal MPG</h3>
-    <img src="https://images.autotrader.com/hn/c/38e00b9da88a449aafa8ee4f7af05cdf.jpg" alt="Toyota Sequoia Platinum">
-    <p><b>💰 Best price w/ captain's:</b> 2024 Sequoia <b>Platinum</b> · Blueprint (blue) · 19,566 mi · <b>$67,795</b> · <b style="color:#1f7a3d">✓ captain's verified</b> (Platinum). <a href="https://www.autotrader.com/cars-for-sale/vehicle/784953910">View listing →</a><br>
-    <span style="color:#888;font-size:13px">The cheapest SR5 ($58,173) is a <b>bench</b> — SR5 offers no captain's option, so the Platinum is the entry point for captain's.</span><br>
-    <b>MPG:</b> ~19 city / 22 hwy (standard i-FORCE MAX hybrid) · <b>3rd row:</b> full-size seating (cargo behind it a bit smaller due to hybrid battery) · <b>Reliability:</b> excellent (Toyota).<br>
-    <a href="https://www.autotrader.com/cars-for-sale/vehicle/781216052">View listing →</a></p>
-  </div>
-
-  <div class="card">
-    <h3>4. GMC Yukon (Denali) — full-size, captain's standard</h3>
-    <img src="https://images.autotrader.com/hn/c/f652967e5f3b4bce9dade1f2e3bb6234.jpg" alt="GMC Yukon Denali black">
-    <p><b>💰 Best price w/ captain's:</b> 2025 Yukon <b>Denali</b> · Onyx Black · 21,696 mi · <b>$64,900</b> · <b style="color:#1f7a3d">✓ captain's verified</b> (photos). <a href="https://www.autotrader.com/cars-for-sale/vehicle/778308515">View listing →</a><br>
-    <b>MPG:</b> ~16 (6.2 V8, gas) · <b>3rd row:</b> full-size (Yukon XL / Suburban have the biggest 3rd row + cargo of anything here) · <b>Note:</b> the cheaper SLE/SLT trims come as benches — <b>Denali</b> is where captain's chairs are standard. (No diesel, per your call.)</p>
-  </div>
-
-  <div class="card">
-    <h3>5. Toyota Grand Highlander (Hybrid) — MPG champ, one size down</h3>
-    <img src="https://images.autotrader.com/hn/c/bbf3c382f9734a3bb6a9d58bc4c3ac8e.jpg" alt="Toyota Grand Highlander XLE blue">
-    <p><b>💰 Best price:</b> 2025 Grand Highlander XLE · Blueprint (blue) · 9,973 mi · <b>$34,795</b> · <b style="color:#1f7a3d">✓ captain's verified</b> (photos show 2nd-row buckets). Cheapest <b>hybrid</b> from ~$39,900.<br>
-    <b>MPG:</b> 26&ndash;36 — <b>best of the group</b> · <b>3rd row:</b> ⚠ genuinely usable for adults, but midsize-large — <b>not</b> the full-size cavern the Wagoneer gives · <b>Reliability:</b> excellent. Included because it's your sister's and the value/MPG leader.<br>
-    <a href="https://www.autotrader.com/cars-for-sale/vehicle/776107162">View listing →</a></p>
-  </div>
-
-  <h2>Also considered — the Lexus &amp; others (⚠ smaller 3rd row)</h2>
-  <p class="note">You asked to see these too. All are lovely, but each falls short of your "full-size, real 3rd row" rule — so they're reference, not front-runners.</p>
-
-  <div class="mini">
-    <img src="https://images.autotrader.com/hn/c/7fd3d1fbb3dc48868e34c443bca31d46.jpg" alt="Lexus TX black">
-    <div class="body"><h3>Lexus TX — luxury hybrid 3-row</h3>
-    <p><b>💰 Best price w/ captain's:</b> 2024 TX 350 · Caviar (black) · 11,127 mi · <b>$55,910</b> · <b style="color:#1f7a3d">✓ captain's verified</b> (6-seat config, photos). <a href="https://www.autotrader.com/cars-for-sale/vehicle/784262030">View →</a><br>
-    <b>MPG:</b> ~21 (TX 350 gas); the <b>500h hybrid</b> ~27 but runs ~$75k · <b>3rd row:</b> usable adult row, but <b>midsize-large</b> — same size class as the Grand Highlander, not full-size · <b>Reliability:</b> excellent (Lexus).</p></div>
-  </div>
-
-
-  <div class="mini">
-    <img src="https://images.autotrader.com/hn/c/518761bf3aa54e1a89a86f7ef45dd78c.jpg" alt="Lincoln Aviator black">
-    <div class="body"><h3>Lincoln Aviator — luxe value, plug-in option</h3>
-    <p><b>💰 Best price:</b> 2023 Aviator AWD · black · 16,940 mi · <b>$27,995</b> · <b style="color:#1f7a3d">✓ captain's verified</b> (photos). <a href="https://www.autotrader.com/cars-for-sale/vehicle/784161956">View →</a><br>
-    <b>MPG:</b> ~21 gas; a <b>Grand Touring PHEV</b> exists (~56 MPGe, rarer) · <b>3rd row:</b> usable but tighter, less cargo behind it · <b>⚠ Must test-drive:</b> sit in the third row before committing — it's smaller than the full-size trucks, so confirm it actually works for your family. Closest of these to your Escalade/Wagoneer taste, and cheap.</p></div>
-  </div>
-
-  <h2>⚡ Electric options (you asked)</h2>
-  <p class="note">The Vistiq fits your box — captain's-verified, in budget, real (if not full-size) 3rd row, A+ cabin. <b>Good news on charging:</b> your garage already has the 240V wiring + breaker from the previous Tesla, so home charging is basically done — just mount a wall charger (a few hundred dollars). The remaining EV trade-off is planning road-trip charging stops.</p>
-
-  <div class="card">
-    <h3>Cadillac Vistiq — you'd love it, and it IS in budget ⭐</h3>
-    <img src="https://images.autotrader.com/hn/c/ab06b3b7bf3f4dc2a82d4521bd3e1909.jpg" alt="Cadillac Vistiq black">
-    <p><b>💰 Best price w/ captain's:</b> 2026 Vistiq Luxury · Stellar Black · 4,908 mi (basically new) · <b>$61,747</b> · <b style="color:#1f7a3d">✓ captain's verified</b> (photos). <a href="https://www.autotrader.com/cars-for-sale/vehicle/779733921">View listing →</a><br>
-    <b>Range:</b> ~305 mi · <b>3rd row:</b> real &amp; usable (midsize-large, not full-size) · <b>Note:</b> Cadillac's new 3-row EV — the same luxe vibe as the Escalade IQ but <b>~$30k cheaper used</b> (the IQ starts ~$90k). A genuine in-budget "wow" pick.</p>
-  </div>
-
-
-  <p class="note"><b>Cut (fail your rules):</b> <b>Kia EV9</b> — great EV, but it's a Kia. <b>Tesla Model X</b> — that $42k one is a 2021 with the older cabin + a tight 3rd row. <b>Rivian R1S</b> — full 3rd row, but a 2nd-row bench (no captain's). <b>Escalade IQ</b> — too pricey (used ~$90k+). All easy to add back on request.</p>
-
-  <h2>Next step</h2>
-  <p>Pick a direction for the final shortlist: <b>Path A</b> — full-size gas (Wagoneer / Escalade / Yukon Denali / Sequoia Platinum) · <b>Path B</b> — Grand Highlander Hybrid / Aviator (smaller 3rd row, better mpg) · <b>Path C</b> — electric (Cadillac Vistiq). Every card is captain's-verified.</p>
-
-  <div class="foot">Diata Health · Photos &amp; pricing from live AutoTrader listings, accurate as of July 22, 2026 — inventory changes daily.</div>
+  <div class="foot">Diata Health · Sources: live AutoTrader listings as of July 24, 2026. Add notes under any car below — they're shared with everyone who has this link.</div>
 
 <script>
-const DB_URL = "https://diata-suv-notes-default-rtdb.firebaseio.com"; // Firebase Realtime DB base URL
+const DB_URL = "https://diata-suv-notes-default-rtdb.firebaseio.com";
 const connected = !/REPLACE_ME/.test(DB_URL);
 function esc(s){return (s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
 function slug(t){return t.toLowerCase().replace(/^[0-9.\s]+/,'').split(/[\s—-]+/).slice(0,2).join('-').replace(/[^a-z0-9-]/g,'')}
 async function loadNotes(car){ if(!connected) return {}; try{ const r=await fetch(`${DB_URL}/notes/${car}.json`); return (await r.json())||{}; }catch(e){ return {}; } }
-async function addNote(car,box){ const nm=box.querySelector('.nm').value.trim()||'Anonymous'; const tx=box.querySelector('textarea').value.trim(); if(!tx) return; if(!connected){ alert('The shared notes backend is being connected — check back shortly.'); return; } await fetch(`${DB_URL}/notes/${car}.json`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({n:nm,x:tx,t:Date.now()})}); box.querySelector('textarea').value=''; renderCar(car); }
-async function renderCar(car){ const box=document.querySelector(`.notes[data-car="${car}"]`); if(!box) return; const data=await loadNotes(car); const items=Object.values(data||{}).sort((a,b)=>a.t-b.t); let h='<h4>💬 Notes &amp; thoughts</h4>'; h+= items.length ? items.map(n=>`<div class="note"><span class="who">${esc(n.n)}</span> <span class="when">${new Date(n.t).toLocaleDateString()}</span><br>${esc(n.x)}</div>`).join('') : '<div class="locked">No notes yet — add the first.</div>'; h+=`<div class="row"><input class="nm" placeholder="Your name"><textarea placeholder="Add a note…"></textarea><button>Post</button></div>`; box.innerHTML=h; box.querySelector('button').onclick=()=>addNote(car,box); }
-document.querySelectorAll('.card, .mini .body').forEach(c=>{ const h=c.querySelector('h3'); if(!h||/GX 550/i.test(h.textContent)) return; const d=document.createElement('div'); d.className='notes'; d.dataset.car=slug(h.textContent); c.appendChild(d); });
+async function addNote(car,box){ const nm=box.querySelector('.nm').value.trim()||'Anonymous'; const tx=box.querySelector('textarea').value.trim(); if(!tx) return; await fetch(`${DB_URL}/notes/${car}.json`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({n:nm,x:tx,t:Date.now()})}); box.querySelector('textarea').value=''; renderCar(car); }
+async function renderCar(car){ const box=document.querySelector(`.notes[data-car="${car}"]`); if(!box) return; const data=await loadNotes(car); const items=Object.values(data||{}).sort((a,b)=>a.t-b.t); let h='<h4>💬 Notes &amp; thoughts</h4>'; h+= items.length ? items.map(n=>`<div class="note-item"><span class="who">${esc(n.n)}</span> <span class="when">${new Date(n.t).toLocaleDateString()}</span><br>${esc(n.x)}</div>`).join('') : '<div class="locked">No notes yet — add the first.</div>'; h+=`<div class="row"><input class="nm" placeholder="Your name"><textarea placeholder="Add a note…"></textarea><button>Post</button></div>`; box.innerHTML=h; box.querySelector('button').onclick=()=>addNote(car,box); }
+document.querySelectorAll('.card').forEach(c=>{ const h=c.querySelector('h3'); if(!h) return; const d=document.createElement('div'); d.className='notes'; d.dataset.car=slug(h.textContent); c.appendChild(d); });
 document.querySelectorAll('.notes[data-car]').forEach(b=>renderCar(b.dataset.car));
 </script>
 </body>
